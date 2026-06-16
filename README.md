@@ -8,7 +8,7 @@ financial fraud. NETH intercepts, parses, and classifies three threat vectors:
 <!-- Record your own per DEMO.md, save as demo/neth-demo.mp4, then it links here -->
 
 ▶️ **[Watch the demo](demo/neth-demo.mp4)** — scanning a scam QR, a phishing
-message, and the Telegram bot. (See [DEMO.md](DEMO.md) to record it.)
+message, and the Telegram bot. 
 
 | # | Threat | Engine |
 |---|--------|--------|
