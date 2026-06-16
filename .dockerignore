@@ -1,0 +1,23 @@
+# keep the image small and secrets out
+.git
+.gitignore
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# secrets — supplied as host env vars, never baked into the image
+.env
+*.token
+.telegram_token
+
+# local-only data (rebuilt or runtime)
+data/feedback*.db
+data/wechat_models/
+eval_data/
+
+# docs / media not needed at runtime
+*.mp4
+*.mov
+demo/

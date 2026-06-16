@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NETH · Scam Detection Gateway</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <span class="logo">◎</span>
+      <h1>NETH <span class="kh">(នេត)</span></h1>
+      <p class="tagline">THE DIGITAL WATCHFUL EYE</p>
+      <span class="badge" id="health">checking…</span>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="image">📷 Scan QR Photo</button>
+      <button class="tab" data-tab="text">📝 Text / URL</button>
+      <button class="tab" data-tab="khqr">🔢 KHQR String</button>
+    </nav>
+
+    <!-- IMAGE (primary: most people scan a photo of the placard) -->
+    <section class="panel active" id="panel-image">
+      <label>ថតរូប ឬផ្ទុករូប KHQR / Take or upload a photo of the QR</label>
+      <input type="file" id="image-input" accept="image/*" capture="environment" />
+      <button class="run" data-endpoint="image">ស្កេន / Scan image</button>
+    </section>
+
+    <!-- TEXT -->
+    <section class="panel" id="panel-text">
+      <label>បិទភ្ជាប់សារ ឬតំណ / Paste a forwarded message, SMS, or link</label>
+      <textarea id="text-input" rows="5"
+        placeholder="e.g. អ្នកបានឈ្នះរង្វាន់ពី ABA! ចុចលីង bit.ly/xx បន្ទាន់!"></textarea>
+      <button class="run" data-endpoint="text">វិភាគ / Analyze text</button>
+    </section>
+
+    <!-- KHQR (developer / advanced) -->
+    <section class="panel" id="panel-khqr">
+      <label>Paste a raw KHQR / EMVCo payload string (advanced)</label>
+      <textarea id="khqr-input" rows="4"
+        placeholder="00020101021129...6304XXXX"></textarea>
+      <button class="run" data-endpoint="khqr">Analyze KHQR</button>
+    </section>
+
+    <section id="result" class="result hidden"></section>
+  </main>
+
+  <footer>NETH v0.1 · open-source community edition · verify recipients before paying</footer>
+  <script src="/static/app.js"></script>
+</body>
+</html>

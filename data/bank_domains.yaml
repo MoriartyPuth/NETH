@@ -1,0 +1,57 @@
+# NETH canonical bank / wallet domains
+# ============================================================================
+# Used by neth/url_reputation.py for brand-lookalike detection: if a brand key
+# appears as a token in a URL host but the registrable domain is NOT one of the
+# official domains below, the link is flagged.
+#
+# ⚠️  SAFETY RULE: a WRONG or MISSING domain here flags the REAL bank as
+#     phishing. Verify every domain against the bank's official site before
+#     adding. When unsure of the exact suffix (.com vs .com.kh), list BOTH —
+#     over-listing only weakens detection slightly; under-listing causes false
+#     alarms on the genuine site.
+#
+# brand key = matched as a case-insensitive host-token PREFIX. Keep keys
+# distinctive; very short/generic keys (e.g. 3 letters, common words) can
+# over-trigger on unrelated sites. Community PRs welcome.
+# ============================================================================
+
+banks:
+  # --- Cambodia: commercial banks ---
+  aba:        {domains: [ababank.com, abamobile.com]}
+  acleda:     {domains: [acledabank.com, acledabank.com.kh]}
+  canadia:    {domains: [canadiabank.com.kh]}
+  vattanac:   {domains: [vattanacbank.com]}
+  sathapana:  {domains: [sathapana.com.kh, sathapana.com]}
+  prince:     {domains: [princebank.com.kh]}
+  chipmong:   {domains: [chipmongbank.com]}
+  phillip:    {domains: [phillipbank.com.kh]}
+  maybank:    {domains: [maybank.com.kh, maybank2u.com.kh]}
+  hlb:        {domains: [hlb.com.kh]}            # Hong Leong Bank Cambodia
+  ftbbank:    {domains: [ftbbank.com]}           # Foreign Trade Bank
+  campu:      {domains: [campubank.com.kh]}      # Cambodian Public Bank
+  jtrust:     {domains: [jtrustroyal.com]}
+  woori:      {domains: [wooribank.com.kh, wooribank.com]}
+  ppcbank:    {domains: [ppcbank.com.kh]}
+  aeon:       {domains: [aeon.com.kh]}           # AEON Specialized Bank
+
+  # --- Cambodia: microfinance / wallets ---
+  wing:       {domains: [wingmoney.com, wingbank.com.kh]}
+  truemoney:  {domains: [truemoney.com.kh, truemoney.com]}
+  amret:      {domains: [amret.com.kh, amret.com]}
+  hattha:     {domains: [hatthabank.com]}
+  prasac:     {domains: [prasac.com.kh]}
+  amkcambodia: {domains: [amkcambodia.com]}      # AMK Microfinance
+
+  # --- Cambodia: national / regulator ---
+  bakong:     {domains: [bakong.nbc.gov.kh]}
+  nbc:        {domains: [nbc.gov.kh, nbc.org.kh]}
+
+  # --- International wallets / card networks ---
+  # NOTE: 'visa' is also a common English word (travel visas); it may
+  # occasionally over-trigger. Prune if false alarms are a problem.
+  paypal:     {domains: [paypal.com]}
+  alipay:     {domains: [alipay.com, intl.alipay.com]}
+  wechat:     {domains: [wechat.com, weixin.qq.com]}
+  unionpay:   {domains: [unionpay.com, unionpayintl.com]}
+  visa:       {domains: [visa.com]}
+  mastercard: {domains: [mastercard.com]}

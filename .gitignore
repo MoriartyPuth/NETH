@@ -1,0 +1,24 @@
+# secrets — never commit tokens
+.env
+*.token
+.telegram_token
+
+# local data
+data/feedback*.db
+data/*.local.*
+data/wechat_models/
+eval_data/
+
+# python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# os / editor
+.DS_Store
+Thumbs.db
+
+# local tooling config
+.claude/

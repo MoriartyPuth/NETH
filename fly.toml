@@ -1,0 +1,21 @@
+# NETH - Fly.io config. Change `app` to your own unique name before deploying.
+app = "neth-watch"
+primary_region = "sin"   # Singapore — closest Fly region to Cambodia
+
+[build]
+
+[env]
+  PORT = "8080"
+  NETH_URL_ONLINE = "0"   # set to "1" only after adding feed keys as secrets
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  # keep one machine always running so the Telegram bot stays online
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 1
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "512mb"

@@ -1,0 +1,31 @@
+# NETH Bakong participant (bank) codes
+# ============================================================================
+# Maps the routing identifier in a KHQR account to a brand slug (matching the
+# keys in data/bank_domains.yaml). The identifier is the part after '@' in a
+# Bakong account id, e.g. "sokha@aclb" -> "aclb", or an acquiring-bank BIC in
+# Tag 30 sub-tag 02, e.g. "ACLBKHPP".
+#
+# Matching is by PREFIX (case-insensitive): a code key matches if the routing
+# string starts with it — so "aclb" matches both "aclb" and the BIC
+# "aclbkhpp...". Keep keys distinctive (>=3 chars).
+#
+# ⚠️ INCOMPLETE and NEEDS VERIFICATION from real KHQR samples. The detector is
+#     CONSERVATIVE: an UNKNOWN routing code never triggers a mismatch (so a
+#     missing entry = no false positive, just "couldn't verify routing"). But a
+#     WRONG entry WOULD false-flag a legitimate bank — verify before adding.
+#     Easiest way to populate: decode genuine QimoR codes from each bank's own
+#     app and record the @suffix / acquiring BIC here.
+# ============================================================================
+
+code_prefixes:
+  aba:  aba       # ABA Bank   (BIC ABAAKHPP)
+  aclb: acleda    # ACLEDA     (BIC ACLBKHPP)
+  cadi: canadia   # Canadia    (BIC CADIKHPP)
+  wing: wing      # Wing
+  # --- add verified codes below (examples, confirm before enabling) ---
+  # vtnc: vattanac
+  # spht: sathapana
+  # ppcb: ppcbank
+  # ftbc: ftbbank
+  # cmcb: chipmong
+  # phsb: phillip
