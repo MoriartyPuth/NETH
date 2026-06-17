@@ -59,6 +59,40 @@ pytest -q                              # run the offline smoke tests
 The gateway is useful immediately with **no model download or API key** — the
 NLP engine ships a working Khmer heuristic baseline, and KHQR/vision run offline.
 
+## Telegram bot
+
+### Use the bot (for everyone)
+1. Open the bot in Telegram: **[@neth_watch_bot](https://t.me/neth_watch_bot)**
+2. Press **Start**.
+3. Send it either:
+   - 📷 a **photo of a KHQR** to check it, or
+   - 📝 a **forwarded message or link** you're unsure about.
+4. It replies in Khmer with **✅ Safe / ⚠️ Suspicious / ⛔ Blocked** and the reason.
+
+> Always confirm the recipient's name in your banking app before paying — NETH is
+> an advisory aid, not a guarantee.
+
+### Run your own bot
+
+1. In Telegram, message **@BotFather** → `/newbot` → pick a name + username →
+   copy the token it gives you.
+2. Provide the token to NETH (any one of these — never commit it to git):
+   - **File:** create `.telegram_token` in the project root containing just the token, or
+   - **Env var:** `setx NETH_TELEGRAM_TOKEN "<token>"` (Windows; then open a new terminal), or
+   - **Argument:** `python -m neth.bot <token>`
+3. Install and run:
+   ```bash
+   pip install -r requirements.txt
+   python -m neth.bot
+   ```
+   When you see `Telegram bot running…`, message your bot and press **Start**.
+
+Notes:
+- Only **one** instance may poll a token at a time — don't run it locally *and*
+  on a server with the same token (Telegram returns a "Conflict" error).
+- The token is a secret. `.telegram_token`, `.env`, and `*.token` are git-ignored.
+- For always-on hosting (so the bot runs without your PC), see [DEPLOY.md](DEPLOY.md).
+
 ## Optional integrations (env vars)
 
 | Variable | Enables |
