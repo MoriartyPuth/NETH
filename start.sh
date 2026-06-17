@@ -3,8 +3,11 @@
 set -e
 
 if [ -n "$NETH_TELEGRAM_TOKEN" ]; then
-  echo "[neth] starting Telegram bot (background)…"
-  python -m neth.bot &
+  echo "[neth] starting Telegram bot (background, auto-restart)…"
+  ( while true; do
+      python -m neth.bot || echo "[neth] bot exited ($?), restarting in 5s…"
+      sleep 5
+    done ) &
 else
   echo "[neth] NETH_TELEGRAM_TOKEN not set — bot disabled, web only."
 fi

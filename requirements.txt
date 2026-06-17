@@ -19,8 +19,8 @@ pyzbar>=0.1.9          # multi-QR decode fallback (needs zbar system lib)
 # torch>=2.2
 # khmer-nltk>=1.6      # Khmer word segmentation
 
-# --- telegram bot (optional) ---
-# python-telegram-bot>=21.0
+# --- telegram bot ---
+python-telegram-bot>=21.0
 
 # --- dev ---
 pytest>=8.0
