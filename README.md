@@ -1,5 +1,8 @@
 # NETH (នេត្រ) — The Digital Watchful Eye
 
+<img width="1182" height="665" alt="logo" src="https://github.com/user-attachments/assets/08be940d-a474-461c-9d91-4d2afe3aff37" />
+
+
 An automated defensive gateway that protects the Khmer community from digital
 financial fraud. NETH intercepts, parses, and classifies three threat vectors:
 
