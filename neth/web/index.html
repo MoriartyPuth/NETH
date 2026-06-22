@@ -1,53 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="night">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NETH · Scam Detection Gateway</title>
+  <link rel="icon" type="image/png" href="/static/favicon.png" />
+  <link rel="apple-touch-icon" href="/static/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/static/style.css" />
 </head>
-<body>
-  <main>
-    <header class="hero">
-      <span class="logo">◎</span>
-      <h1>NETH <span class="kh">(នេត)</span></h1>
-      <p class="tagline">THE DIGITAL WATCHFUL EYE</p>
-      <span class="badge" id="health">checking…</span>
+<body class="min-h-screen flex flex-col bg-base-200">
+  <main class="w-full max-w-2xl mx-auto px-4 py-6 flex-1">
+
+    <!-- Hero -->
+    <header class="flex flex-col items-center text-center gap-3 mb-7">
+      <img src="/static/logo.jpg" alt="NETH — The Digital Watchful Eye"
+           class="w-full max-w-md rounded-2xl border border-base-300 shadow-lg" />
+      <h1 class="text-2xl font-bold tracking-[0.2em]">NETH <span class="text-primary tracking-normal">(នេត)</span></h1>
+      <p class="text-xs tracking-[0.25em] uppercase opacity-60">The Digital Watchful Eye</p>
+      <span id="health" class="badge badge-ghost gap-1">checking…</span>
     </header>
 
-    <nav class="tabs">
-      <button class="tab active" data-tab="image">📷 Scan QR Photo</button>
+    <!-- Tabs -->
+    <div role="tablist" class="tabs tabs-boxed justify-center mb-5 bg-base-100">
+      <button class="tab tab-active" data-tab="image">📷 ស្កេន QR / Scan</button>
       <button class="tab" data-tab="text">📝 Text / URL</button>
-      <button class="tab" data-tab="khqr">🔢 KHQR String</button>
-    </nav>
+      <button class="tab" data-tab="khqr">🔢 KHQR</button>
+    </div>
 
-    <!-- IMAGE (primary: most people scan a photo of the placard) -->
-    <section class="panel active" id="panel-image">
-      <label>ថតរូប ឬផ្ទុករូប KHQR / Take or upload a photo of the QR</label>
-      <input type="file" id="image-input" accept="image/*" capture="environment" />
-      <button class="run" data-endpoint="image">ស្កេន / Scan image</button>
+    <!-- IMAGE (primary) -->
+    <section class="panel card bg-base-100 shadow-md" id="panel-image">
+      <div class="card-body gap-3">
+        <label class="text-sm opacity-70">ថតរូប ឬផ្ទុករូប KHQR / Take or upload a photo of the QR</label>
+        <input type="file" id="image-input" accept="image/*" capture="environment"
+               class="file-input file-input-bordered w-full" />
+        <button class="run btn btn-primary self-start" data-endpoint="image">ស្កេន / Scan image</button>
+      </div>
     </section>
 
     <!-- TEXT -->
-    <section class="panel" id="panel-text">
-      <label>បិទភ្ជាប់សារ ឬតំណ / Paste a forwarded message, SMS, or link</label>
-      <textarea id="text-input" rows="5"
-        placeholder="e.g. អ្នកបានឈ្នះរង្វាន់ពី ABA! ចុចលីង bit.ly/xx បន្ទាន់!"></textarea>
-      <button class="run" data-endpoint="text">វិភាគ / Analyze text</button>
+    <section class="panel card bg-base-100 shadow-md hidden" id="panel-text">
+      <div class="card-body gap-3">
+        <label class="text-sm opacity-70">បិទភ្ជាប់សារ ឬតំណ / Paste a message, SMS, or link</label>
+        <textarea id="text-input" rows="5" class="textarea textarea-bordered w-full text-base"
+          placeholder="e.g. អ្នកបានឈ្នះរង្វាន់ពី ABA! ចុចលីង bit.ly/xx បន្ទាន់!"></textarea>
+        <button class="run btn btn-primary self-start" data-endpoint="text">វិភាគ / Analyze</button>
+      </div>
     </section>
 
-    <!-- KHQR (developer / advanced) -->
-    <section class="panel" id="panel-khqr">
-      <label>Paste a raw KHQR / EMVCo payload string (advanced)</label>
-      <textarea id="khqr-input" rows="4"
-        placeholder="00020101021129...6304XXXX"></textarea>
-      <button class="run" data-endpoint="khqr">Analyze KHQR</button>
+    <!-- KHQR (advanced) -->
+    <section class="panel card bg-base-100 shadow-md hidden" id="panel-khqr">
+      <div class="card-body gap-3">
+        <label class="text-sm opacity-70">Paste a raw KHQR / EMVCo payload string (advanced)</label>
+        <textarea id="khqr-input" rows="4" class="textarea textarea-bordered w-full font-mono text-sm"
+          placeholder="00020101021129...6304XXXX"></textarea>
+        <button class="run btn btn-primary self-start" data-endpoint="khqr">Analyze KHQR</button>
+      </div>
     </section>
 
-    <section id="result" class="result hidden"></section>
+    <!-- Result -->
+    <section id="result" class="mt-6 hidden rounded-box overflow-hidden shadow-lg"></section>
   </main>
 
-  <footer>NETH v0.1 · open-source community edition · verify recipients before paying</footer>
+  <footer class="text-center text-xs opacity-50 py-4">
+    NETH v0.1 · open-source community edition · verify recipients before paying
+  </footer>
   <script src="/static/app.js"></script>
 </body>
 </html>

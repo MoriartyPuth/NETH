@@ -22,3 +22,6 @@ Thumbs.db
 
 # local tooling config
 .claude/
+
+# heavy original logo — the served hero uses the compressed logo.jpg
+neth/web/logo.png

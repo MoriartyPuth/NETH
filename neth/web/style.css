@@ -1,100 +1,18 @@
+/* NETH — supplements DaisyUI/Tailwind (loaded via CDN in index.html). */
+
 :root {
-  --bg: #0d1117;
-  --panel: #161b22;
-  --panel-2: #1c2330;
-  --border: #2a3340;
-  --text: #e6edf3;
-  --muted: #8b96a5;
-  --accent: #3b82f6;
-  --safe: #2ea043;
-  --warn: #d29922;
-  --block: #da3633;
+  font-family: "Noto Sans Khmer", "Segoe UI", system-ui, sans-serif;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
-  font-family: "Segoe UI", system-ui, "Noto Sans Khmer", sans-serif;
-  background: var(--bg); color: var(--text); min-height: 100vh;
-  display: flex; flex-direction: column;
+  font-family: "Noto Sans Khmer", "Segoe UI", system-ui, sans-serif;
 }
-.hero {
-  display: flex; flex-direction: column; align-items: center; text-align: center;
-  gap: 8px; padding: 8px 0 26px;
+
+/* Khmer script needs a little more line height to breathe. */
+.leading-relaxed {
+  line-height: 1.7;
 }
-.logo {
-  font-size: 34px; color: var(--accent);
-  background: var(--panel-2); width: 58px; height: 58px; border-radius: 16px;
-  display: grid; place-items: center; border: 1px solid var(--border);
+
+html {
+  scroll-behavior: smooth;
 }
-.hero h1 { font-size: 28px; letter-spacing: 4px; margin-top: 4px; }
-.hero h1 .kh { color: var(--accent); letter-spacing: normal; }
-.tagline {
-  color: var(--muted); font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
-}
-.badge {
-  margin-top: 6px;
-  font-size: 12px; padding: 5px 12px; border-radius: 20px;
-  background: var(--panel-2); border: 1px solid var(--border); color: var(--muted);
-}
-.badge.ok { color: var(--safe); border-color: var(--safe); }
-main { max-width: 760px; width: 100%; margin: 0 auto; padding: 28px 20px; flex: 1; }
-.tabs { display: flex; gap: 8px; margin-bottom: 20px; }
-.tab {
-  flex: 1; padding: 12px; background: var(--panel); color: var(--muted);
-  border: 1px solid var(--border); border-radius: 10px; cursor: pointer;
-  font-size: 14px; transition: .15s;
-}
-.tab:hover { color: var(--text); }
-.tab.active { background: var(--panel-2); color: var(--text); border-color: var(--accent); }
-.panel { display: none; flex-direction: column; gap: 12px; }
-.panel.active { display: flex; }
-label { font-size: 14px; color: var(--muted); }
-textarea, input[type=file] {
-  width: 100%; background: var(--panel); color: var(--text);
-  border: 1px solid var(--border); border-radius: 10px; padding: 12px;
-  font-size: 15px; font-family: inherit; resize: vertical;
-}
-textarea:focus { outline: none; border-color: var(--accent); }
-.run {
-  align-self: flex-start; background: var(--accent); color: #fff; border: none;
-  padding: 11px 22px; border-radius: 10px; font-size: 15px; cursor: pointer;
-}
-.run:hover { filter: brightness(1.1); }
-.run:disabled { opacity: .6; cursor: progress; }
-.result {
-  margin-top: 26px; background: var(--panel); border: 1px solid var(--border);
-  border-radius: 12px; padding: 0; overflow: hidden;
-}
-.result.hidden { display: none; }
-.verdict { padding: 18px 20px; display: flex; align-items: center; gap: 14px; }
-.verdict .icon { font-size: 32px; }
-.verdict .label { font-size: 20px; font-weight: 600; }
-.verdict .summary { font-size: 13px; color: var(--muted); }
-.verdict.s0 { border-left: 5px solid var(--safe); }
-.verdict.s1 { border-left: 5px solid var(--warn); }
-.verdict.s2 { border-left: 5px solid var(--block); }
-.signals { border-top: 1px solid var(--border); }
-.signal { padding: 14px 20px; border-bottom: 1px solid var(--border); }
-.signal:last-child { border-bottom: none; }
-.signal .engine {
-  font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted);
-}
-.signal .reason { font-size: 14px; margin-top: 4px; }
-.signal .reason.km { font-size: 15px; line-height: 1.6; }
-.signal .reason.en { font-size: 12px; color: var(--muted); margin-top: 2px; }
-.verdict .label.km { line-height: 1.5; }
-.signal .meta { font-size: 12px; color: var(--muted); margin-top: 6px; word-break: break-all; }
-.feedback {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
-  padding: 14px 20px; border-top: 1px solid var(--border);
-  font-size: 13px; color: var(--muted);
-}
-.feedback .fb {
-  background: var(--panel-2); color: var(--text); border: 1px solid var(--border);
-  padding: 7px 13px; border-radius: 8px; cursor: pointer; font-size: 13px;
-}
-.feedback .fb:hover { border-color: var(--accent); }
-.feedback .fb:disabled { opacity: .5; cursor: default; }
-.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 7px; }
-.dot.s0 { background: var(--safe); } .dot.s1 { background: var(--warn); }
-.dot.s2 { background: var(--block); } .dot.sn { background: var(--muted); }
-footer { text-align: center; color: var(--muted); font-size: 12px; padding: 18px; }
